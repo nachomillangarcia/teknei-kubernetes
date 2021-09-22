@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  web:
+    image: tiagoes19/custom-nginx-teknei-home-1
+    ports:
+      - 7777:80
+    # volumes:
+    #   - 
+
