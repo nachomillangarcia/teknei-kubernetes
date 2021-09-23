@@ -3,7 +3,7 @@ Para construir y ejecutar la app
 
 ```
 docker volume create maven-repo
-docker run --rm -v "$PWD":/usr/src/myapp -v maven-repo:/root/.m2 -w /usr/src/myapp maven:3.6.3-jdk-8 mvn clean install
+docker run --rm -v ${PWD}:/usr/src/myapp -v maven-repo:/root/.m2 -w /usr/src/myapp maven:3.6.3-jdk-8 mvn clean install
 docker build -t java-todo .
 docker network create java-todo
 docker volume create java-mysql
