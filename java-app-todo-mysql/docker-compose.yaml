@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  app:
+    image: nachomillangarcia/java-todo-teknei
+    ports:
+    - 8080:8080
+    environment:
+      DB_HOSTNAME: bbdd
+      DB_NAME: todo
+      DB_USERNAME: todo
+      DB_PASSWORD: pass
+    depends_on:
+    - bbdd
+
+  bbdd:
+    image: mysql
+    volumes:
+      - java-mysql:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: todo
+      MYSQL_USER: todo
+      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_PASSWORD: pass
+
+volumes:
+  java-mysql:
+
+
