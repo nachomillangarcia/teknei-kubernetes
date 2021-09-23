@@ -2,9 +2,14 @@ version: "3.9"
 
 services:
   web:
+    build: .
     image: tiagoes19/custom-nginx-teknei-home-1
     ports:
       - 7777:80
-    # volumes:
-    #   - 
+    volumes:
+      - "./nginx.conf:/etc/nginx/nginx.conf" 
+      - persistent-data:/root/mydata
 
+
+volumes:
+  persistent-data: 
