@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: java-hello-world
+spec:
+    replicas: 3
+    selector:
+        matchLabels:
+            project: java-hello-world
+    template:
+        metadata:
+            labels:
+                project: java-hello-world
+        spec:
+            containers:
+            - name: java
+              image: nachomillangarcia/java-hello-world-teknei
+              ports:
+              - containerPort: 8080
