@@ -18,6 +18,9 @@ spec:
               image: nginx
               ports:
               - containerPort: 80
+              env:
+              - name: foo
+                value: var
               volumeMounts:
                 - mountPath: /root/persistent
                   name: nginx-statefulset
