@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
     name: nginx-deployment
 spec:
-    replicas: 3
+    replicas: 1
     strategy:
       type: Recreate
     selector:
@@ -20,3 +20,20 @@ spec:
               image: nginx:1.19
               ports:
               - containerPort: 80
+              volumeMounts:
+                - mountPath: /root/config
+                  name: config
+                - mountPath: /root/credentials
+                  name: credentials
+                - mountPath: /root/persistent
+                  name: data
+            volumes:
+            - name: config
+              configMap:
+                name: nginx-config
+            - name: credentials
+              secret:
+                secretName: nginx-secret
+            - name: data
+              persistentVolumeClaim:
+                claimName: nginx-pvc

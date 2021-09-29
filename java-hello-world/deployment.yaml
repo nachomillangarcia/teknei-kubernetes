@@ -17,3 +17,13 @@ spec:
               image: nachomillangarcia/java-hello-world-teknei
               ports:
               - containerPort: 8080
+              resources:
+                requests:
+                  cpu: 10m
+                  memory: 20M
+                limits:
+                  cpu: 10m
+                  memory: 20M
+
+
+                
