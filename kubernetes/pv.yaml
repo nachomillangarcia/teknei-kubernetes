@@ -1,7 +1,35 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: volumen-3g
+  name: volumen-3g3
+spec:
+  capacity:
+    storage: 3Gi
+  accessModes:
+  - ReadWriteOnce
+  hostPath:
+    path: "/mnt/volumen-3g3"
+
+---
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: volumen-3g2
+spec:
+  capacity:
+    storage: 3Gi
+  accessModes:
+  - ReadWriteOnce
+  hostPath:
+    path: "/mnt/volumen-3g"
+
+---
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: volumen-3g1
 spec:
   capacity:
     storage: 3Gi
