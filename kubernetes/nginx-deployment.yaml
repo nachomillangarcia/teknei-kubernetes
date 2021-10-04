@@ -25,8 +25,8 @@ spec:
                   name: config
                 - mountPath: /root/credentials
                   name: credentials
-                - mountPath: /root/persistent
-                  name: data
+                # - mountPath: /root/persistent
+                #   name: data
             volumes:
             - name: config
               configMap:
@@ -34,10 +34,12 @@ spec:
             - name: credentials
               secret:
                 secretName: nginx-secret
-            - name: data
-              persistentVolumeClaim:
-                claimName: nginx-pvc
-            tolerations:
-            - key: "fastcpu"
-              operator: "Exists"
-              effect: "NoSchedule"
+            # - name: data
+            #   persistentVolumeClaim:
+            #     claimName: nginx-pvc
+            # tolerations:
+            # - key: "fastcpu"
+            #   operator: "Exists"
+            #   effect: "NoSchedule"
+            serviceAccountName: nginx
+              
