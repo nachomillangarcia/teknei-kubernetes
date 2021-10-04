@@ -15,6 +15,14 @@ spec:
                 app: nginx
                 company: teknei
         spec:
+            initContainers:
+              - name: hello
+                image: ubuntu
+                command:
+                - /bin/bash
+                args:
+                - -c
+                - "echo Hello Teknei && sleep 5 && date"
             containers:
             - name: nginx
               image: nginx:1.19
@@ -27,6 +35,14 @@ spec:
                   name: credentials
                 # - mountPath: /root/persistent
                 #   name: data
+              resources:
+                requests:
+                  cpu: 0.1
+                  memory: 128M
+                limits:
+                  cpu: 0.1
+                  memory: 128M 
+   
             volumes:
             - name: config
               configMap:

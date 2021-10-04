@@ -12,6 +12,16 @@ spec:
             labels:
                 app: todo-app
         spec:
+            initContainers:
+            - name: hello-world
+              image: hello-world
+              resources:
+                requests:
+                  cpu: 0.1
+                  memory: 128M
+                limits:
+                  cpu: 0.1
+                  memory: 128M              
             containers:
             # - name: nginx
             #   image: nginx
