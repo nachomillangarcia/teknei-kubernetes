@@ -1,0 +1,14 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: nginx-workload-admin
+subjects:
+  - kind: ServiceAccount
+    name: nginx
+  - kind: User
+    name: robert
+    apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: workload-admin
+  apiGroup: rbac.authorization.k8s.io
