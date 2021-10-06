@@ -41,11 +41,5 @@ spec:
                   port: 3000
                 periodSeconds: 30
                 initialDelaySeconds: 10
-              volumeMounts:
-              - name: test
-                mountPath: /persistent    
-            volumes:
-            - name: test
-              persistentVolumeClaim:
-                claimName: node-app
+
 
