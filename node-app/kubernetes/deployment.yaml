@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
     name: node-app
+    labels:
+      foo: bar
 spec:
     replicas: 1
     strategy:
@@ -14,6 +16,7 @@ spec:
             labels:
                 app: node-app
                 company: teknei
+                deploy-fargate: "true"
         spec:
             containers:
             - name: nodeapp
